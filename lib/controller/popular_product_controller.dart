@@ -1,3 +1,4 @@
+import 'package:dson/dson.dart';
 import 'package:ecom/data/repository/popular_product_repo.dart';
 import 'package:get/get.dart';
 import 'package:get/state_manager.dart';
@@ -14,13 +15,17 @@ class PopularProductController extends GetxController {
 
   Future<void> getPopularProductList() async {
     Response response = await popularProductRepo.getPopularProductList();
+
+    String jsonString = toJson(response.body);
     if (response.statusCode == 200) {
       _popularProductList = [];
       _popularProductList.addAll(Product.fromJson(response.body).products);
 
-      // avoid in production
-      print(response.body.toString());
       update();
-    } else {}
+      // avoid in production
+      print("FROM CNTRLR STTS200:  " + jsonString);
+    } else {
+      print("FROM CNTRLR STTS UNKNOWN:  " + jsonString);
+    }
   }
 }

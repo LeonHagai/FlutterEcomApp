@@ -8,6 +8,8 @@ import 'helper/dependencies.dart' as dep;
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await dep.init();
+
+  print("SHOULD PRINT RESPONSE:");
   runApp(const MyApp());
 }
 
