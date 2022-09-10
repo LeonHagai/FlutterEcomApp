@@ -1,16 +1,21 @@
 import 'package:dson/dson.dart';
-import 'package:ecom/data/api/api_client.dart';
-import 'package:get/get.dart';
+import "package:http/http.dart" as http;
 
-class PopularProductRepo extends GetxService {
-  final ApiClient apiClient;
-  PopularProductRepo({required this.apiClient});
+import '../../models/products_model.dart';
 
-  Future<Response> getPopularProductList() async {
-    Response response = await apiClient
-        .getData("https://mvs.bslmeiyu.com/api/v1/products/popular");
-    String jsonBody = toJson(response.body);
-    print("FROM REPO::" + jsonBody);
-    return response;
-  }
+class PopularProductRepo {
+  // final ApiClient apiClient;
+  // PopularProductRepo({required this.apiClient});
+  static var client = http.Client();
+
+  // Future<List<Product>> getPopularProductList() async {
+  //   var response = await client
+  //       .get(Uri.parse('https://www.dbestech.com/api/product/list'));
+
+  //   // Response response = await apiClient
+  //   //     .getData("https://mvs.bslmeiyu.com/api/v1/products/popular");
+  //   String jsonBody = toJson(response.body);
+  //   print("FROM REPO::" + jsonBody);
+  //   return response;
+  // }
 }
