@@ -8,7 +8,7 @@ Future<void> init() async {
   Get.lazyPut(() => ApiClient(appBaseUrl: "https://mvs.bslmeiyu.com"));
 
   // get repo
-  Get.lazyPut(() => PopularProductRepo(apiClient: Get.find()));
+  // Get.lazyPut(() => PopularProductRepo(apiClient: Get.find()));
 
   // controller
   Get.lazyPut(() => PopularProductController(popularProductRepo: Get.find()));
