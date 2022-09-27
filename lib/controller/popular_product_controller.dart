@@ -13,19 +13,20 @@ class PopularProductController extends GetxController {
   List<dynamic> _popularProductList = [];
   List<dynamic> get popularProductList => _popularProductList;
 
-  // Future<void> getPopularProductList() async {
-  //   // Response response = await popularProductRepo.getPopularProductList();
+  Future<void> getPopularProductList() async {
+    Response response =
+        (await popularProductRepo.getPopularProductList()) as Response;
 
-  //   String jsonString = toJson(response.body);
-  //   if (response.statusCode == 200) {
-  //     _popularProductList = [];
-  //     _popularProductList.addAll(Product.fromJson(response.body).products);
+    String jsonString = toJson(response.body);
+    if (response.statusCode == 200) {
+      _popularProductList = [];
+      _popularProductList.addAll(Product.fromJson(response.body).products);
 
-  //     update();
-  //     // avoid in production
-  //     print("FROM CNTRLR STTS200:  " + jsonString);
-  //   } else {
-  //     print("FROM CNTRLR STTS UNKNOWN:  " + jsonString);
-  //   }
-  // }
+      update();
+      // avoid in production
+      print("FROM CNTRLR STTS200:  " + jsonString);
+    } else {
+      print("FROM CNTRLR STTS UNKNOWN:  " + jsonString);
+    }
+  }
 }
