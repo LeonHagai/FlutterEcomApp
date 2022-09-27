@@ -2,14 +2,12 @@ import 'package:ecom/pages/food/reccomended_food_detail.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'controller/popular_product_controller.dart';
 import 'helper/dependencies.dart' as dep;
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await dep.init();
 
-  print("SHOULD PRINT RESPONSE:");
   runApp(const MyApp());
 }
 
